@@ -1,0 +1,129 @@
+:root {
+  --bg-color: #fff;
+}
+
+.clock-main {
+  width: 400px;
+  stroke: black;
+  stroke-width: 1;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+}
+
+.clock-contain {
+  fill: var(--bg-color);
+}
+
+.seconds,
+.minute,
+.hour {
+  transform: translate(20px, 20px) rotate(0deg);
+}
+
+.seconds {
+  stroke-width: 0.3;
+  stroke: #d00505;
+  animation: rotateSecondsHand 60s steps(60) infinite;
+}
+
+.minute {
+  stroke-width: 0.6;
+  animation: rotateMinuteHand 3600s steps(60) infinite;
+  animation-delay: calc(var(--start-seconds) * -1 * 1s);
+}
+
+.hour {
+  stroke-width: 1;
+  animation: rotateHourHand calc(12 * 60 * 60s) linear infinite;
+  animation-delay: calc(calc(var(--start-minutes) * -60 * 1s) + calc(var(--start-seconds) * -1 * 1s));
+}
+
+.pin {
+  stroke: #d00505;
+  stroke-width: 0.2;
+}
+
+.marks {
+  transform: translate(20px, 20px);
+  stroke-width: 0.2;
+}
+
+.marks > line:nth-child(1) {
+  /* There are 12 marks, so we rotate by 30deg (12 * 30 = 360) */
+  transform: rotate(30deg); 
+}
+
+.marks > line:nth-child(2) {
+  transform: rotate(calc(2 * 30deg));
+}
+
+.marks > line:nth-child(3) {
+  transform: rotate(calc(3 * 30deg));
+  stroke-width: 0.5;
+}
+
+.marks > line:nth-child(4) {
+  transform: rotate(calc(4 * 30deg));
+}
+
+.marks > line:nth-child(5) {
+  transform: rotate(calc(5 * 30deg));
+}
+
+.marks > line:nth-child(6) {
+  transform: rotate(calc(6 * 30deg));
+  stroke-width: 0.5;
+}
+
+.marks > line:nth-child(7) {
+  transform: rotate(calc(7 * 30deg));
+}
+
+.marks > line:nth-child(8) {
+  transform: rotate(calc(8 * 30deg));
+}
+
+.marks > line:nth-child(9) {
+  transform: rotate(calc(9 * 30deg));
+  stroke-width: 0.5;
+}
+
+.marks > line:nth-child(10) {
+  transform: rotate(calc(10 * 30deg));
+}
+
+.marks > line:nth-child(11) {
+  transform: rotate(calc(11 * 30deg));
+}
+
+.marks > line:nth-child(12) {
+  transform: rotate(calc(12 * 30deg));
+  stroke-width: 0.5;
+}
+
+@keyframes rotateSecondsHand {
+  from {
+    transform: translate(20px, 20px) rotate(var(--deg-seconds));
+  }
+  to {
+    transform: translate(20px, 20px) rotate(calc(var(--deg-seconds) + 360deg));
+  }
+}
+
+@keyframes rotateMinuteHand {
+  from {
+    transform: translate(20px, 20px) rotate(var(--deg-minutes));
+  }
+  to {
+    transform: translate(20px, 20px) rotate(calc(var(--deg-minutes) + 360deg));
+  }
+}
+
+@keyframes rotateHourHand {
+  from {
+    transform: translate(20px, 20px) rotate(var(--deg-hours));
+  }
+  to {
+    transform: translate(20px, 20px) rotate(calc(var(--deg-hours) + 360deg));
+  }
+}
