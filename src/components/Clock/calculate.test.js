@@ -1,7 +1,6 @@
 import {
-  getTime, degreeHours, degreeMinutes
+  getTime, degreeHours, degreeMinutes,
 } from './calculate';
-
 
 describe('Get current time by offset', () => {
   const date = new Date(2020, 12, 12, 0, 0, 0);
@@ -53,22 +52,22 @@ describe('Calculate degree minutes by offset', () => {
   });
 
   test('Offset -0.1 expect degree = 324', () => {
-    expect(degreeMinutes(-0.1, date)).toBe(54*6);
+    expect(degreeMinutes(-0.1, date)).toBe(54 * 6);
   });
 
   test('Offset 0.2 expect degree = 72', () => {
-    expect(degreeMinutes(0.2, date)).toBe(12*6);
+    expect(degreeMinutes(0.2, date)).toBe(12 * 6);
   });
 
   test('Offset 0.3 expect degree = 108', () => {
-    expect(degreeMinutes(0.3, date)).toBe(18*6);
+    expect(degreeMinutes(0.3, date)).toBe(18 * 6);
   });
 
   test('Offset 0.4 expect degree = 144', () => {
-    expect(degreeMinutes(0.4, date)).toBe(24*6);
+    expect(degreeMinutes(0.4, date)).toBe(24 * 6);
   });
 
   test('Offset 0.5 expect degree = 180', () => {
-    expect(degreeMinutes(0.5, date)).toBe(30*6);
+    expect(degreeMinutes(0.5, date)).toBe(30 * 6);
   });
 });
